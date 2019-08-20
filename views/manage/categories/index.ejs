@@ -1,0 +1,26 @@
+<div class="container">
+   <h1>manage category</h1>
+   <a href="/manage/categories/add"><p>Add category</p></a>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">Name</th>
+        </tr>
+    </thead>
+        <tbody>
+        <% categories.forEach((list) => { %>
+            <tr>
+                <td><%= list.name %></td> <td><a href="/manage/categories/edit/<%= list._id %>" class="btn btn-primary">edit</a></td>
+                <td>
+                <form  method="post" action="/manage/categories/delete/<%= list._id %>">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                     <input type="hidden" name=" _csrf" value="{_csrf}"  />
+                      <input type="hidden" name="_method" value="DELETE"  />
+                </form></td>
+            </tr> 
+            <% }) %> 
+        </tbody>
+         
+    </table>
+   
+</div>

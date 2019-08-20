@@ -1,0 +1,23 @@
+ <h1 class="h1">my new page</h1>
+    <div class="container">
+
+        <div class="input-group flex-nowrap">
+            <Form action="/" method="GET">
+                <label>
+                    <input type="text" name="search" value="<%= searchOptions.name %>" />
+                </label>
+                <button class="btn btn-primary" type="submit">Search</button>
+            </Form>
+        </div>
+
+
+        
+        <div>
+            <% lists.forEach((list) => { %>
+               <div> <a href="/details/<%= list._id %>" > <%= list.name %> </a> </div>
+            <% }) %>
+        </div>
+         <br>
+      
+        <a href="/manage" ><button type="submit" class="btn btn-primary">admin</button></a>
+    </div>

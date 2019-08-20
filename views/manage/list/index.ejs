@@ -1,0 +1,34 @@
+<div class="container">
+   <h1>list manage</h1>
+   <a href="/manage/list/add"><p>Add business</p></a>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Page Count</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+        <tbody>
+        <% lists.forEach((list) => { %>
+            <tr>
+                <td><%= list._id %> </td>
+                <td><%= list.name %></td>
+                <td><%= list.category %></td>
+                <td><%= list.counter %></td>
+                <td><a href="/manage/list/edit/<%= list._id %>" class="btn btn-primary">edit</a></td>
+                <td>
+                <form  method="post" action="/manage/list/delete/<%= list._id %>">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                     <input type="hidden" name=" _csrf" value="{_csrf}"  />
+                      <input type="hidden" name="_method" value="DELETE"  />
+                </form></td>
+            </tr> 
+            <% }) %> 
+        </tbody>
+         
+    </table>
+   
+</div>
